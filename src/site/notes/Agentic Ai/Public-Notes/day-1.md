@@ -2,107 +2,107 @@
 {"dg-publish":true,"permalink":"/agentic-ai/public-notes/day-1/","dg-note-properties":{}}
 ---
 
+### 🎯 The 3 Things You CARE About (Baaki sab bakwaas hai)
 
-[Laravel](https://laravel.com/) ==provides an expressive, minimal API wrapper around the **Guzzle HTTP client**==. It allows your application to seamlessly make outgoing HTTP requests to interact with third-party web services and external APIs. [[1](https://laravel.com/docs/7.x/http-client), [2](https://laracasts.com/discuss/channels/laravel/http-client-1)]
+| Doc ne kya likha hai                                                               | Iska matlab kya hai? (Laravel language)                                                                                                  |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Endpoint URL**  <br>`http://localhost:11434/api/generate`                     | Ye tera **API URL** hai. Laravel HTTP Client isi pe `POST` request bhejega.                                                              |
+| **2. Request Body**  <br>`{ "model": "gemma4", "prompt": "Why is the sky blue?" }` | Ye tera **Payload** hai. Laravel mein isko array mein daalna hai:  <br>`['model' => 'llama3.1', 'prompt' => 'Hello', 'stream' => false]` |
+| **3. Response Field**  <br>`"response": "The sky is blue because..."`              | Ollama se jo **answer** aayega, wo is `response` key ke andar aayega.  <br>Laravel mein: `$response->json()['response']`                 |
+### 🔍 1. Kaise pata karein ki konsa model install hai?
 
-Making Requests
+Ollama mein installed models dekhne ke liye yeh command use karein:
 
-You can leverage the `Illuminate\Support\\Facades\Http` facade to quickly dispatch basic HTTP requests: [[1](https://laravel.com/docs/7.x/http-client), [2](https://laravel-news.com/laravel-http-client)]
+bash
 
-php
+ollama list
 
-```
-use Illuminate\Support\Facades\Http;
+Ya fir:
 
-// GET Request
-$response = Http::get('https://example.com');
+bash
 
-// POST Request with Data
-$response = Http::post('https://example.com', [
-    'name' => 'Alex',
-    'role' => 'Developer',
-```
+ollama ls
 
-Inspecting Responses
+Is command se aapko local system par stored saare models ki list mil jaayegi, unke IDs, size, aur last modification time ke saath. Agar koi model install nahi hai toh list empty hogi.
 
-The response facade returns an instance of `Illuminate\Http\Client\Response`, which contains convenient methods to verify status and retrieve payloads: [[1](https://laravel.com/docs/7.x/http-client), [2](https://www.youtube.com/watch?v=T1irYrYkTPM)]
+### 🌐 2. Ollama server kis host/port par run kar raha hai?
 
-- **`$response->body()`**: Returns the raw response body as a string.
+- **Default:** Ollama server by default `127.0.0.1` (localhost) aur port `11434` par bind hota hai.
+    
+- **Custom:** Agar aapko change karna hai toh `OLLAMA_HOST` environment variable use karein. Jaise:
+    
+    bash
+    
+    export OLLAMA_HOST=0.0.0.0:11434
+    
+    (Note: `0.0.0.0` par bind karne se server aapke network par available ho jaata hai)
+    
 
-- **`$response->json()`**: Decodes the response directly into a readable PHP array.
+### 📝 3. Laravel `.env` file mein kaise configure karein?
 
-- **`$response->status()`**: Returns the exact HTTP status code integer.
+Laravel project ki `.env` file mein aap yeh variables add kar sakte hain:
 
-- **`$response->successful()`**: Evaluates to true if the status code is between `200` and `299`.
+env
 
-- **`$response->failed()`**: Evaluates to true if the status code is `400` or higher. [[1](https://laravel.com/docs/7.x/http-client), [2](https://laravel-news.com/laravel-http-client), [3](https://eminentcoders.com/laravel-http-client-api/)]
+OLLAMA_URL=http://127.0.0.1:11434
+OLLAMA_MODEL=llama3.1
 
-php
+Kuch Laravel packages isi format ko follow karte hain. Aap chahein toh `OLLAMA_HOST` bhi use kar sakte hain, lekin `OLLAMA_URL` zyada common hai.
 
-```
-if ($response->successful()) {
-    $data = $re
-```
-Advanced Request Configurations
+**Note:** `.env` file mein changes karne ke baad Laravel cache clear karna na bhoolen:
 
-You can chain configuration methods directly onto the `Http` facade before dispatching the final verb: [[1](https://www.desarrollolibre.net/blog/laravel/laravel-http-client-first-connections-and-basic-exception-handling), [2](https://laravel-zero.com/docs/http-client)]
+bash
 
-php
+php artisan config:clear
 
-```
-$response = Http::withHeaders([
-    'X-Custom-Header' => 'Value'
-])
-->withToken('your-api-bearer-token') // Adds Authorization Bearer header
-->timeout(5)                         // Terminates after 5 seconds of hanging
-->retry(3, 100)                      // Retries 3 times, waiting 100ms apart
-->get('https://example.com');
-```
+### 🚀 4. Ollama server kaise run karein?
 
-Handling Failures Gracefully
+Ollama server ko chalane ke do tareeke hain:
 
-Instead of manually evaluating every condition, you can explicitly direct Laravel to throw a `RequestException` if a client error (`4xx`) or server error (`5xx`) occurs: [[1](https://laravel.com/docs/13.x/http-client), [2](https://github.com/JosephSilber/laravel-docs/blob/8.x/http-client.md), [3](https://devdocs-fr.github.io/laravel/7.x/http-client.html)]
+**A. Direct run (foreground):**
 
-php
+bash
 
-```
-$response = Http::get('https://example.com');
+ollama serve
 
-// Throws an exception if the request fails
-$response->throw(); 
+Ye command server ko foreground mein start karta hai. Agar aap terminal band karenge toh server band ho jaayega.
 
-// Throws conditional exceptions
-$response->throwIf($condition);
-```
+**B. Background mein run (recommended):**
 
-Quick Debugging
+- **Linux (systemd):** Ollama install script usually ek `ollama.service` systemd service create karta hai jo server ko background mein run karta hai. Aap ise manually manage kar sakte hain:
+    
+    bash
+    
+    sudo systemctl start ollama
+    sudo systemctl status ollama
+    
+- **macOS:** Agar Ollama macOS app ke through install hai toh environment variables `launchctl` ke through set karne hote hain.
+    
+- **Manual background:** Aap is tarah bhi background mein daal sakte hain:
+    
+    bash
+    
+    ollama serve > ollama.log 2>&1 &
+    
+    Isse server background mein chalega aur logs `ollama.log` file mein store honge.
+    
 
-Laravel features on-the-fly debugging methods to inspect outbound parameters and returned diagnostics directly in execution: [[1](https://laravel-news.com/http-client-debugging), [2](https://www.youtube.com/watch?v=T1irYrYkTPM)]
+**Server status check:** Server chal raha hai ya nahi yeh check karne ke liye:
 
-php
+bash
 
-```
-// Dump the request/response details and continue execution
-Http::get($url)->dump();
+curl http://localhost:11434/api/tags
 
-// Die and Dump the response layout immediately
-Http::get($url)->dd();
-```
+Agar response aata hai toh server sahi chal raha hai.
 
-Testing and Mocking
+### ✅ Summary Table
 
-You can isolate your applications from network reliance during testing cycles by invoking the `Http::fake()` wrapper to simulate external responses without breaking actual integrations: [[1](https://laravel.com/docs/13.x/http-client), [2](https://devtalk94.medium.com/laravel-http-client-best-practices-features-e4f7e670b057), [3](https://laravel.com/docs/7.x/http-client), [4](https://laravel-news.com/laravel-http-client), [5](https://msaied.com/articles/laravel-contextual-http-clients-per-service-config-retries-and-middleware-stacks)]
-
-php
-
-```
-use Illuminate\Support\Facades\Http;
-
-Http::fake([
-    // Stub a JSON response for GitHub endpoints
-    'github.com/*' => Http::response(['data' => 'mocked-profile'], 200, ['Headers']),
-
-    // Stub a string response for Google endpoints
-    '://google.com*' => Http::response('Hello World', 200),
-]);
-```
+|Task|Command / Action|
+|---|---|
+|Installed models dekhna|`ollama list`|
+|Server host/port check|Default: `127.0.0.1:11434`|
+|Host change karna|`export OLLAMA_HOST=0.0.0.0:11434`|
+|`.env` mein add karna|`OLLAMA_URL=http://127.0.0.1:11434`|
+|Server start (foreground)|`ollama serve`|
+|Server start (background - Linux)|`sudo systemctl start ollama`|
+|Server status check|`curl http://localhost:11434/api/tags`|
