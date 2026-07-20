@@ -125,3 +125,77 @@ text
 **Total Extra Time:** ~10 days. Baaki tera existing roadmap cover kar lega.
 
 ---
+
+
+
+### 🗓️ THE MERGED 30-DAY "ULTRA" ROADMAP
+
+_(Har din ka 1 Target + 1 Extra Automation Skill)_
+
+---
+
+#### 📅 WEEK 1: The Foundation + Observability (Days 1-7)
+
+_Focus: Brain banana aur usko "Visible" banana._
+
+|Day|Core Laravel Skill (Pehle se tha)|🚀 Extra "Ultra" Skill (Naya Add-On)|Project Deliverable|
+|---|---|---|---|
+|**1**|HTTP Client + Ollama Setup|_(No extra, focus on connection)_|`php artisan ai:chat` CLI tool|
+|**2**|JSON Schema + DTOs|_(No extra, focus on parsing)_|Web Form JSON Extractor|
+|**3**|**SSE Streaming (Aaj ka kaam)**|_(No extra, finish streaming first)_|Word-by-word live typing|
+|**4**|Redis Memory + Context|**Install Python + pyautogui basics**|Chat with memory + Mouse move script|
+|**5**|Prompt Versioning|**Learn `openpyxl` (Read/Write Excel)**|Prompt logger + Excel writer script|
+|**6**|Error Handling + Retries|**Learn `pytesseract` (OCR basics)**|Resilient LLM + Image to text script|
+|**7**|**Observability (Logging)**|**Build Laravel Pulse Dashboard**|AI Logs + Token Cost Dashboard (Live)|
+
+---
+
+#### 📅 WEEK 2: The Eyes (RAG + OCR) (Days 8-14)
+
+_Focus: AI ko PDF, Images, aur Private Data padhna sikhana._
+
+|Day|Core Laravel Skill|🚀 Extra "Ultra" Skill|Project Deliverable|
+|---|---|---|---|
+|**8**|pgvector Setup|**Install PaddleOCR (Better than Tesseract)**|Vector DB + Advanced OCR engine ready|
+|**9**|Embeddings Generation|**Write Python script to OCR scanned PDFs**|PDF upload -> Python OCR -> Text extract|
+|**10**|Chunking Strategies|**Integrate OCR text into Laravel chunks**|Scanned Invoice text chunking|
+|**11**|Basic RAG Pipeline|_(Focus on Laravel RAG)_|"Chat with Scanned PDF" endpoint|
+|**12**|Hybrid Search|**Add Excel export to search results**|Search results directly download as Excel|
+|**13**|Testing Mocks|**Test Python scripts via Laravel `Process`**|PHPUnit tests calling Python scripts|
+|**14**|Cost Optimization|**Log OCR processing time too**|Optimized RAG + OCR cost dashboard|
+
+---
+
+#### 📅 WEEK 3: The Hands + Voice (Tools, Agents, Desktop) (Days 15-21)
+
+_Focus: AI ko physically action karwana (Tally, Click, Type, Bolna)._
+
+|Day|Core Laravel Skill|🚀 Extra "Ultra" Skill|Project Deliverable|
+|---|---|---|---|
+|**15**|Tool Calling Schema|**Build Python Tool: `open_tally()`**|Laravel AI -> Python -> Tally opens|
+|**16**|Native Laravel Tools|**Build Python Tool: `update_excel()`**|AI bolta hai "Excel update kar" -> ho jata hai|
+|**17**|**ReAct Pattern (The Loop)**|**Build Python Tool: `click_button(x,y)`**|Agent loop chalega aur physically click karega|
+|**18**|Multi-Agent Orchestration|**Install Whisper (Speech-to-Text)**|Supervisor agent + Voice input ready|
+|**19**|Queues + Async Agents|**Integrate Whisper with Laravel Queue**|Bolaa "Invoice daalo" -> Queue mein job laga|
+|**20**|Parallel Tool Execution|**Install pyttsx3 (Text-to-Speech)**|Agent parallel me kaam kare + Bol ke sunaye|
+|**21**|**HITL (Human Approval)**|**Voice Feedback Loop**|Agent bolega _"Refund karna hai? Haan ya Naa?"_|
+
+---
+
+#### 📅 WEEK 4: The Final "Jarvis" Integration + Deployment (Days 22-30)
+
+_Focus: Sab kuch jodna aur Live karna._
+
+|Day|Core Laravel Skill|🚀 Extra "Ultra" Skill|Project Deliverable|
+|---|---|---|---|
+|**22**|Project 1 (RAG Agent)|**Add Voice Input to Project 1**|Support agent se baat karo (Voice)|
+|**23**|Project 1 Tool Integration|**Add Desktop Action to Project 1**|"Ticket create karo" -> Desktop notification|
+|**24**|Project 2 (Code Reviewer)|_(Focus on GitHub API)_|PR review agent|
+|**25**|Project 2 Agent System|**Add Excel Report Generator**|PR summary Excel mein save karo|
+|**26**|Project 3 (Invoice Workflow)|**Add Tally Automation to Project 3**|Invoice padho -> Tally mein entry daalo|
+|**27**|Project 3 Agent Routing|**Add Voice Confirmation**|"Invoice daal diya sir!" (Awaaz mein)|
+|**28**|**Dockerization**|**Dockerfile mein Python + Tesseract add karo**|Pure stack Docker mein band|
+|**29**|CI/CD (GitHub Actions)|**Auto-deploy on Railway**|Live URL generate karo|
+|**30**|Documentation + Polish|**Record 2-min Demo Video**|US founder ko bhejne layak pitch deck|
+
+---
