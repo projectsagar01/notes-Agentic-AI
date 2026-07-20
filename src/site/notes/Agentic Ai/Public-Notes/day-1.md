@@ -97,12 +97,12 @@ Agar response aata hai toh server sahi chal raha hai.
 
 ### ✅ Summary Table
 
-|Task|Command / Action|
-|---|---|
-|Installed models dekhna|`ollama list`|
-|Server host/port check|Default: `127.0.0.1:11434`|
-|Host change karna|`export OLLAMA_HOST=0.0.0.0:11434`|
-|`.env` mein add karna|`OLLAMA_URL=http://127.0.0.1:11434`|
-|Server start (foreground)|`ollama serve`|
-|Server start (background - Linux)|`sudo systemctl start ollama`|
-|Server status check|`curl http://localhost:11434/api/tags`|
+| Task                              | Command / Action                       |
+| --------------------------------- | -------------------------------------- |
+| Installed models dekhna           | `ollama list`                          |
+| Server host/port check            | Default: `127.0.0.1:11434`             |
+| Host change karna                 | `export OLLAMA_HOST=0.0.0.0:11434`     |
+| `.env` mein add karna             | `OLLAMA_URL=http://127.0.0.1:11434`    |
+| Server start (foreground)         | `ollama serve`/ollama run 'modelname'  |
+| Server start (background - Linux) | `sudo systemctl start ollama`          |
+| Server status check               | `curl http://localhost:11434/api/tags` |
