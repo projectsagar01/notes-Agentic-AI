@@ -6,15 +6,15 @@
 
 ### 🟢 PHASE 1: Production-Ready Foundation (Days 4-10)
 
-|Day|Project|Topic|Interview Question Target|Kya Seekhna?|
-|---|---|---|---|---|
-|**4**|**Project: SDK Migrator**|**Switch from Raw HTTP to Laravel AI SDK**|_"Why did you choose Laravel AI SDK over raw HTTP?"_|`composer require laravel/ai`. Provider swapping, built-in tools, schema generation.|
-|**5**|**Project: Multi-Provider Agent**|**Provider Swapping (Ollama ↔ OpenAI)**|_"How do you handle different LLM providers in production?"_|`.env` se model switch. Same code, different providers.|
-|**6**|**Project: Ticket Extractor**|**Structured Outputs (JSON Schema)**|_"How do you ensure AI returns valid JSON?"_|`withStructuredOutput()` + PHP DTOs. Validation + retry.|
-|**7**|**Project: Order Assistant**|**Tool Calling (Database Read)**|_"How does your agent interact with the database?"_|`HasTools` trait. Tool schema auto-generation.|
-|**8**|**Project: StreamChat (SDK)**|**SSE Streaming (SDK Way)**|_"How do you handle long-running AI responses?"_|SDK's built-in `stream()` method. Word-by-word.|
-|**9**|**Project: MemoryBot**|**Conversation Memory**|_"How does your agent remember previous chats?"_|`remember()` method. Redis + Database persistence.|
-|**10**|**Project: VectorStore**|**pgvector + Embeddings**|_"How do you implement semantic search?"_|`vector` column. `whereVectorSimilarTo()`. HNSW index.|
+| Day    | Project                           | Topic                                      | Interview Question Target                                    | Kya Seekhna?                                                                         |
+| ------ | --------------------------------- | ------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| **4**  | **Project: SDK Migrator**         | **Switch from Raw HTTP to Laravel AI SDK** | _"Why did you choose Laravel AI SDK over raw HTTP?"_         | `composer require laravel/ai`. Provider swapping, built-in tools, schema generation. |
+| **5**  | **Project: Multi-Provider Agent** | **Provider Swapping (Ollama ↔ OpenAI)**    | _"How do you handle different LLM providers in production?"_ | `.env` se model switch. Same code, different providers.                              |
+| **6**  | **Project: Ticket Extractor**     | **Structured Outputs (JSON Schema)**       | _"How do you ensure AI returns valid JSON?"_                 | `withStructuredOutput()` + PHP DTOs. Validation + retry.                             |
+| **7**  | **Project: Order Assistant**      | **Tool Calling (Database Read)**           | _"How does your agent interact with the database?"_          | `HasTools` trait. Tool schema auto-generation.                                       |
+| **8**  | **Project: StreamChat (SDK)**     | **SSE Streaming (SDK Way)**                | _"How do you handle long-running AI responses?"_             | SDK's built-in `stream()` method. Word-by-word.                                      |
+| **9**  | **Project: MemoryBot**            | **Conversation Memory**                    | _"How does your agent remember previous chats?"_             | `remember()` method. Redis + Database persistence.                                   |
+| **10** | **Project: VectorStore**          | **pgvector + Embeddings**                  | _"How do you implement semantic search?"_                    | `vector` column. `whereVectorSimilarTo()`. HNSW index.                               |
 
 ---
 
@@ -89,10 +89,10 @@
 
 ## 🚫 WHAT TO SKIP (Time Waste)
 
-|Topic|Why Skip?|
-|---|---|
-|**Python (for now)**|Pehle Laravel Agent master karo. Python baad mein.|
-|**React / Vue**|Blade + Alpine.js enough for demos.|
-|**TypeScript**|Overkill. Vanilla JS + Alpine.js kaafi hai.|
-|**Fine-tuning**|Startup wants RAG, not fine-tuning.|
-|**LangChain (Python)**|Laravel AI SDK is your stack.|
+| Topic                  | Why Skip?                                          |
+| ---------------------- | -------------------------------------------------- |
+| **Python (for now)**   | Pehle Laravel Agent master karo. Python baad mein. |
+| **React / Vue**        | Blade + Alpine.js enough for demos.                |
+| **TypeScript**         | Overkill. Vanilla JS + Alpine.js kaafi hai.        |
+| **Fine-tuning**        | Startup wants RAG, not fine-tuning.                |
+| **LangChain (Python)** | Laravel AI SDK is your stack.                      |
