@@ -53,3 +53,20 @@ The Laravel AI SDK automatically handles the format translation. You don't need 
 **Current Focus (Week 1):** Text-based AI agents (structured outputs, tool calling, memory).  
 **Week 2:** RAG & PDF/Text ingestion.  
 **Later:** Images, audio, video.
+
+supportflow-ai/
+├── app/
+│   ├── Ai/
+│   │   ├── Agents/              # Day 5 & 6 → TicketExtractorAgent, OrderAssistant
+│   │   ├── Tools/               # Day 6 → SearchOrdersTool, CreateTicketTool
+│   │   └── DTOs/                # Day 5 → TicketDTO
+│   ├── Events/                  # Day 4 → TicketCreated
+│   ├── Listeners/               # Day 4 → HandleTicketCreated
+│   ├── Jobs/                    # Day 4 → GenerateTicketPdf, SendTicketNotification
+│   ├── Services/                # Day 4 → WhatsAppService
+│   ├── Models/                  # Ticket, Order
+│   └── Http/Controllers/        # TicketController, ExtractController
+├── config/ai.php                # Provider config (Ollama/DeepSeek/Gemini)
+├── database/migrations/         # Tickets table
+├── .env                         # AI_PROVIDER, API keys, WAHA, Brevo
+└── resources/views/             # Blade forms (triage_form, extract_form)
