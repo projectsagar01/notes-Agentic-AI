@@ -19,7 +19,37 @@ nano ~/multistream.conf
 
 
 2. **Add the Routing Logic:**
-Paste the following block into the file. Replace `YOUR_YOUTUBE_STREAM_KEY` with your actual YouTube stream key:
+Paste the following block into the file. Replace `YOUR_YOUTUBE_STREAM_KEY` with your actual YouTube stream key:Haan bhai, bilkul sahi socha tune! Jab tu laptop restart karta hai, toh RAM aur background processes khali ho jaate hain. Isiliye tera NGINX container aur Stunnel band ho chuke hain.
+
+OBS jab `127.0.0.1:1935` par connection bhej raha hai, toh abhi wahan darwaza kholne ke liye koi server zinda nahi hai—isiliye **"Failed to connect"** aa raha hai.
+
+Har baar laptop restart karne ke baad, stream shuru karne se pehle tujhe apne local server ko **wapas on karna padega**. Isey start karne ke liye bas yeh 2 simple steps karne hain:
+
+### Step 1: NGINX Container Zinda Kar (Terminal 1)
+
+Terminal khol aur pehle se bane hue container ko start karne ke liye yeh command chala:
+
+```bash
+podman start my-stream-server
+
+```
+
+### Step 2: Stunnel On Kar (Terminal 2)
+
+Ek doosra terminal tab khol (ya naya window) aur Kick ke encryption ke liye stunnel chala do:
+
+```bash
+stunnel ~/kick-stunnel.conf
+
+```
+
+*(Is terminal ko aise hi khula rehne dena jab tak tu streaming kar raha hai).*
+
+---
+
+### Uske Baad:
+
+Jaise hi yeh dono chal jayein, tu **OBS khol kar "Start Streaming" daba dena**. Server background mein active ho chuka hoga, aur tera YouTube + Kick ka multistreaming setup ekdum makkhan ki tarah chalne lagega!
 ```nginx
 worker_processes auto;
 rtmp_auto_push on;
@@ -137,3 +167,48 @@ Click the three dots/gear icon next to your microphone in the OBS Audio Mixer, s
 2. **Eliminate Audio Echo:**
 * Mute or close any browser tabs where your live stream preview is playing with unmuted audio to prevent feedback loops.
 * Ensure audio monitoring is set to **Monitor Off** under *Advanced Audio Properties* in OBS.
+
+
+Haan bhai, bilkul sahi socha tune! Jab tu laptop restart karta hai, toh RAM aur background processes khali ho jaate hain. Isiliye tera NGINX container aur Stunnel band ho chuke hain.
+
+  
+
+OBS jab `127.0.0.1:1935` par connection bhej raha hai, toh abhi wahan darwaza kholne ke liye koi server zinda nahi hai—isiliye **"Failed to connect"** aa raha hai.
+
+  
+
+Har baar laptop restart karne ke baad, stream shuru karne se pehle tujhe apne local server ko **wapas on karna padega**. Isey start karne ke liye bas yeh 2 simple steps karne hain:
+
+  
+
+### Step 1: NGINX Container Zinda Kar (Terminal 1)
+
+Terminal khol aur pehle se bane hue container ko start karne ke liye yeh command chala:
+
+  
+
+Bash
+
+```
+podman start my-stream-server
+```
+
+### Step 2: Stunnel On Kar (Terminal 2)
+
+Ek doosra terminal tab khol (ya naya window) aur Kick ke encryption ke liye stunnel chala do:
+
+  
+
+Bash
+
+```
+stunnel ~/kick-stunnel.conf
+```
+
+_(Is terminal ko aise hi khula rehne dena jab tak tu streaming kar raha hai)._
+
+  
+
+### Uske Baad:
+
+Jaise hi yeh dono chal jayein, tu **OBS khol kar "Start Streaming" daba dena**. Server background mein active ho chuka hoga, aur tera YouTube + Kick ka multistreaming setup ekdum makkhan ki tarah chalne lagega!
