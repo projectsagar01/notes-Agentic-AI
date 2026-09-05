@@ -1,0 +1,63 @@
+{
+  "/": [
+    "src"
+  ],
+  "/src": [
+    "site"
+  ],
+  "/src/site": [
+    "notes"
+  ],
+  "/src/site/notes": [
+    "notes"
+  ],
+  "/src/site/notes/notes": [
+    "Agentic Ai"
+  ],
+  "/src/site/notes/notes/Agentic Ai": [
+    "Public-Notes"
+  ],
+  "/src/site/notes/notes/Agentic Ai/Public-Notes": [
+    "reverse-engineering",
+    "Roadmap",
+    "dad-10.3",
+    "day 11.1",
+    "day-1",
+    "day-1.1- kya padhna h _",
+    "day-1(project)",
+    "day-10",
+    "day-10.1",
+    "day-10.2",
+    "day-10(dsa)",
+    "day-11",
+    "day-2",
+    "day-3",
+    "day-3.1 project",
+    "day-4- what to learn in laravel api",
+    "day-4.1",
+    "day-4.3",
+    "day-5",
+    "day-6",
+    "day-6.1",
+    "day-7",
+    "day-9",
+    "day-9.1",
+    "javascript for agentic ai",
+    "oops",
+    "php",
+    "php02"
+  ],
+  "/src/site/notes/notes/Agentic Ai/Public-Notes/reverse-engineering": [
+    "day-9",
+    "supportflow-ai"
+  ],
+  "/src/site/notes/notes/Agentic Ai/Public-Notes/Roadmap": [
+    "day-9.3.1",
+    "day-9.3(error)",
+    "extraO-roadmap",
+    "Final-roadmap",
+    "obs-setup",
+    "project-SupportFlow-ai",
+    "roadmap"
+  ]
+}
