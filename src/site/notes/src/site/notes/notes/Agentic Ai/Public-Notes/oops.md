@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/src/site/notes/notes/agentic-ai/public-notes/oops/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/src/site/notes/notes/Agentic Ai/Public-Notes/oops/","dg-note-properties":{}}
 ---
 
 Absolutely. Let’s learn **OOPs (Object-Oriented Programming) in C++ from beginner to interview/problem-solving level**, with explanations, examples, questions, and solutions.

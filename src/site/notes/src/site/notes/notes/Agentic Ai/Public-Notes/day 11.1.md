@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/src/site/notes/notes/agentic-ai/public-notes/day-11-1/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/src/site/notes/notes/Agentic Ai/Public-Notes/day 11.1/","dg-note-properties":{}}
 ---
 
 

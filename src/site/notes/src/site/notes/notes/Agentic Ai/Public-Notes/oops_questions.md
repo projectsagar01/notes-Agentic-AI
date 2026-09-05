@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/src/site/notes/notes/agentic-ai/public-notes/oops-questions/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/src/site/notes/notes/Agentic Ai/Public-Notes/oops_questions/","dg-note-properties":{}}
 ---
 
 // /******************************************************************************
